@@ -8,6 +8,7 @@
 #include <cstdlib>
 
 using namespace std;
+
 void line()
 {
     cout << "********************************************" << '\n';
@@ -84,8 +85,7 @@ int main()
             cout << "Round 1." << '\n' << '\n';
             cout << "The computer has dealt itself a card. " << '\n';
 
-            cout << "It deals you a card." << '\n';
-            cout << "You have: " << firstRandomCard << '\n' << '\n'; // First card
+            cout << "It deals you a card. You have: " << firstRandomCard << '\n' << '\n';
             if(firstRandomCard == 1 || firstRandomCard == 11)
             {
                 cout << "You have an ace! Choose to be a 1. '1' or 2. '11' " << '\n';
@@ -103,13 +103,9 @@ int main()
                     round1 = firstRandomCard;
                 }
             }
-            cout << "The computer draws another card" << '\n'; // computer second card
-            cout << "The computer draws you another card" << '\n' << '\n'; // Second card
-            cout << "The computer gets " << computerCard2 << '\n';
-            
-            cout << "You have: " << secondRandomCard << '\n' << '\n';; // output of second card
+            cout << "The computer draws another card. The computer gets " << computerCard2 << '\n'; // computer second card
+            cout << "The computer draws you another card. You have: " << secondRandomCard << '\n' << '\n'; // Second card
             round1 =  firstRandomCard + secondRandomCard; 
-
             if(secondRandomCard == 1 || secondRandomCard == 11) // Could make this a function. Would I have to move the random cards to global variables???
             {
                 cout << "You have an ace! Choose to be a 1. '1' or 2. '11' " << '\n';
@@ -180,10 +176,8 @@ int main()
             {
                 line();
                 cout << "Round 2." << '\n' << '\n';
-                cout << "Computer draws a card. The computer gets " << computerCard3 <<'\n';
-
-                cout << "It deals you a card. You have: " << thirdRandomCard << '\n' << '\n';
-                //cout << "You have: " << thirdRandomCard << '\n' << '\n';
+                cout << "The computer gets " << computerCard3 <<'\n';
+                cout << "You get: " << thirdRandomCard << '\n' << '\n';
                 round2 =  round1 + thirdRandomCard; 
 
                 if(thirdRandomCard == 1 || thirdRandomCard == 11)
@@ -225,7 +219,7 @@ int main()
                     cout << "Press 1 to play again." << '\n';
                     cin >> retry;
                 }
-                if (comRound2 < 21 && round2 < 21) // replaced the else that was here to match the format of round 3
+                if (comRound2 < 21 && round2 < 21)
                 {
                     cout << "Do you want to 1.Hit or 2.Stay ";
                     cin >> play;
@@ -236,7 +230,7 @@ int main()
                     cout << "You have stayed with " << round2 << '\n';
                     cout << "The computer has " << comRound2 << '\n';
 
-                    if (round2 > comRound2 && round2 <= 21) //|| (round2 < comRound2 && round2 <= 21)) // may need to take this out since the computer bust
+                    if (round2 > comRound2 && round2 <= 21)
                     {
                         cout << "You win with " << round2 << " being closer to 21!" << '\n';
                         winScore++;
@@ -251,18 +245,14 @@ int main()
                         cin >> retry;
                     }
                 }
-            } // Putting this here made it not skip to round 3 so repeat for rounds after that
-
+            }
 // ROUND 3
             if (play == 1 && retry != 1)
             {
                 line();
                 cout << "Round 3." << '\n' << '\n';
-                cout << "Computer gets a card." << '\n';// comRound3
-                cout << "The computer gets " << computerCard4 << '\n';
-                    
-                cout << "It deals you a card." << '\n';
-                cout << "You have: " << fourthRandomCard << '\n' << '\n';
+                cout << "The computer gets " << computerCard4 << '\n';// comRound3                    
+                cout << "You get: " << fourthRandomCard << '\n' << '\n';
                 round3 = round2 + fourthRandomCard;
 
                 if(fourthRandomCard == 1 || fourthRandomCard == 11)
@@ -314,12 +304,12 @@ int main()
                     cout << "You have stayed with: " << round3 << '\n';
                     cout << "The computer has: " << comRound3 << '\n';  
 
-                    if (round3 > comRound3 && round3 <= 21) //|| (round3 < comRound3 && round3 <= 21)) //THE ISSUE IS HERE. THE SECOND PART OF IT MAKES IT WHERE THIS PROMPT IS PLAYED
+                    if (round3 > comRound3 && round3 <= 21)
                     {
                         cout << "You win with " << round3 << " being closer to 21!" << '\n';
                         winScore++;
                         cout << "Press 1 to play again." << '\n';
-                         cin >> retry;
+                        cin >> retry;
                     }
                     else if(round3 < comRound3 && comRound3 <= 21)
                     { 
@@ -329,15 +319,14 @@ int main()
                         cin >> retry;
                     }
                 } 
-            } // new bracket for round 3
+            }
 // ROUND 4
-            if (play == 1 && retry != 1) // this worked somehow. changed to if from else if
+            if (play == 1 && retry != 1)
             {
                 line();
                 cout << "Round 4." << '\n' << '\n';
-                cout << "Computer gets: " << computerCard5 << '\n';// comRound4
-                    
-                cout << "You have: " << fifthRandomCard << '\n' << '\n';
+                cout << "Computer gets: " << computerCard5 << '\n';
+                cout << "You get: " << fifthRandomCard << '\n' << '\n';
                 round4 = round3 + fifthRandomCard;
 
                 if(fifthRandomCard == 1 || fifthRandomCard == 11)
@@ -409,8 +398,7 @@ int main()
                 line();
                 cout << "Round 5." << '\n' << '\n';
                 cout << "Computer gets: " << computerCard6 << '\n';
-
-                cout << "You have: " << sixthRandomCard << '\n' << '\n';
+                cout << "You get: " << sixthRandomCard << '\n' << '\n';
                 round5 = round4 + sixthRandomCard;
 
                 if(sixthRandomCard == 1 || sixthRandomCard == 11)
@@ -482,5 +470,4 @@ int main()
             return 0;
         }   
     } while (retry == 1); // To loop the program 
-    
-}
+} // You got this!!!
